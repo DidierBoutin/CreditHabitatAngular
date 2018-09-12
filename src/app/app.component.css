@@ -1,0 +1,38 @@
+
+ #contbody {
+     min-height: 100vh;
+     display: flex;	
+     flex-direction: column;
+     /* font-size: 4.5em; */
+
+ 
+}
+
+#bloc2 {
+    width: 100%;
+      display: flex;	
+     flex-direction: column;
+     justify-content: space-around;
+ }
+
+
+
+
+@media screen and (max-width: 1000px) {
+ 
+
+    #contbody {
+             display: flex;	
+            flex-direction: row;
+            justify-content: left;
+            align-items: start;
+      }
+
+      #bloc2 {
+         display: flex;	
+        flex-direction: row;
+        justify-content: space-around;
+                    align-items: start;
+
+    }
+    }

@@ -1,38 +1,195 @@
-.toolbar{
-  background-image: url("/assets/images/toolbar.jpg");
-   height: 140px;
-   margin-top: 2px;
-     }
- span {
-   text-align: center;
-   margin-top: 0px;
-   color: rgb(49, 150, 94);
-   font-style: italic;
-   font-Weight: Bold;
-   font-size: 30px;
- 
- }
- 
- #titleResponsive {
-     /* text-align: center; */
-     color: rgb(49, 150, 94);
-     font-style: italic;
-     font-Weight: Bold;
-     font-size: 20px;
- }
- 
- #fontSize:hover{
-     font-size: 20px;  
-     outline-style:none;
- }
- 
- ul {
-     width: 100%;
-     display: flex;
-     justify-content: space-between
- }
- 
- li {
-     list-style-type: none;
- }
+  
+  
+.material-icons {
+        font-size: 15 vw;
+      } 
+
+#linemenu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 15vh;
+        border: 3px solid black;  
+        max-height: 70px;
+        /*/max-height: 80px; */
+        font-size: 3vw;
+
+
+           
+}
+    
+#menu1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100%;
+        width: 85%; 
+
+}
    
+#menu2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;    
+        align-items: center;
+        height: 80%;
+        width: 15%;
+        color: grey
+}	
+    
+   
+#choix {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
+        margin-top: 0;
+        margin-bottom: 0;
+        height: 80%;
+        width: 15%; 
+}
+
+#choix2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
+        margin-top: 0;
+        margin-bottom: 0;
+        height: 100%;
+        width: 85%;
+ 
+}
+    
+#choixicon {
+        display: flex;   
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+         width: 100%;
+        height: 50%;
+ }
+#choixicon img{   
+        display: flex;   
+        justify-content: center;
+        align-items: center; 
+        width: auto;
+        height: auto;
+ }
+
+
+#choixtitle {
+        display: flex;   
+        justify-content: center;
+        align-items: center; 
+        width: 100%;
+        height: 50%;
+ }
+
+#choixtitle2 {
+        display: flex;  
+        justify-content: center;
+        align-items: center;  
+        width: 100%;
+        height:50%;
+}
+
+
+/* redefiniton si taille < 1000px*/
+@media screen and (max-width: 1000px) {
+
+        #linemenu {
+                display: flex;
+                flex-direction: column-reverse;
+                justify-content: start;
+                align-items: center;
+                /* mib=n=width: 2vh; */
+                height: 500px;
+                min-width: 12vh;
+                max-width: 12vh;
+
+                 /* min-width: 800px;
+                max-width: 800px; */
+
+                        max-height: 65vw;
+                        min-height: 65vw;
+                        font-size: 8vh;
+ 
+        }
+        
+        #menu1 {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center; 
+                height: 85%;
+                width: 100%;
+        }
+
+    
+
+        #menu2 {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: start;    
+                height: 15%;
+                width: 100%;
+         }
+
+        #choix {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center; 
+                margin-top: 0;
+                margin-bottom: 0;
+                height: 15%;
+                width: 100%;
+                }
+
+        #choix2 {
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                align-items: center; 
+                margin-top: 0;
+                margin-bottom: 0;
+                height: 100%;
+                width: 100%;
+                }	
+                        
+        #choixicon {
+                display: flex;  
+                flex-direction: column;
+                justify-content: center;
+                align-items: center; 
+                width: 100%;
+                height: 50%;
+         }
+                 
+                
+                
+        #choixtitle {
+                display: flex;   
+                justify-content: center;
+                align-items: center; 
+                width: 100%;
+                height: 50%;
+        }
+        
+        #choixtitle2 {
+                display: flex;  
+                justify-content: center;
+                        align-items: center;  
+                width: 100%;
+                height:50%;
+                color:black;
+        }                
+
+}

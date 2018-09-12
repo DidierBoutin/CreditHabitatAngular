@@ -1,7 +1,8 @@
 export interface Menu {
     id: number;
     name: string;
-    description: string;
+    icone: string;
+    color: string;
     position: string;
     path: string;
 }

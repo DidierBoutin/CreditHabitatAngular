@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<div id="conteneur">
+
+  <div id="menupage">
+   </div>
+  ()
+  <div id="bodypage">
+    <div id="leftbody">
+    </div>
+    <div id="listebody">
+      <ng2-smart-table  
+          [settings]="settings" 
+          [source]="source" 
+           (deleteConfirm)="onDeleteConfirm($event)"
+           (createConfirm)="onCreateConfirm($event)"
+           (editConfirm)="onSaveConfirm($event)" 
+           >
+      </ng2-smart-table>
+    </div>
+    <div id="rightbody">
+    </div>
+  </div>
+
+   
+ 
+</div>

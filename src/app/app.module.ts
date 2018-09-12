@@ -10,56 +10,41 @@ import { FooterComponent } from './footer/footer.component';
 import {FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './/app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
-import { AlimentsComponent } from './aliments/aliments.component';
-import { RepasComponent } from './repas/repas.component';
-import { RecettesComponent } from './recettes/recettes.component';
-import { HistoriqueComponent } from './historique/historique.component';
 import { ConnexionComponent } from './connexion/connexion.component';
-import { ProfilComponent } from './profil/profil.component';
-import { Page404Component } from './page404/page404.component';
+ import { Page404Component } from './page404/page404.component';
 import { MatChipsModule, MatTableModule, MatIconModule, MatMenuModule } from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
-
-
-
-
-
-
-
-// tslint:disable-next-line:max-line-length
-import { MatToolbarModule, MatCardModule, MatAutocompleteModule, MatFormFieldModule, MatInputModule, MatSelectModule } from '@angular/material';
+import { MatToolbarModule, MatCardModule, MatAutocompleteModule,
+  MatFormFieldModule, MatInputModule, MatSelectModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LineFoodComponent } from './line-food/line-food.component';
+ import { AnomalieComponent } from './anomalie/anomalie.component';
+import { ParametrageComponent } from './parametrage/parametrage.component';
+import { AvaliderComponent } from './avalider/avalider.component';
+import { ValidesComponent } from './valides/valides.component';
 
 
 
 
 const routes: Routes = [
-  { path: '',
-   redirectTo: 'aliments', pathMatch: 'full' },
-   {
-    path: 'repas',
-    component: RepasComponent
+{ path: '',
+   redirectTo: 'anomalie', pathMatch: 'full'
   },
-   {
-  path: 'aliments',
-  component: AlimentsComponent
+
+{
+  path: 'anomalie',
+  component: AnomalieComponent
 },
 {
-  path: 'recettes',
-  component: RecettesComponent
+  path: 'parametrage',
+  component: ParametrageComponent
 },
 {
-  path: 'historique',
-  component: HistoriqueComponent
+  path: 'avalider',
+  component: AvaliderComponent
 },
 {
-  path: 'connexion',
-  component: ConnexionComponent
-},
-{
-  path: 'profil',
-  component: ProfilComponent
+  path: 'valides',
+  component: ValidesComponent
 },
 { path: '**',
 component: Page404Component  }
@@ -74,14 +59,12 @@ component: Page404Component  }
     HeaderComponent,
     BodyComponent,
     FooterComponent,
-    AlimentsComponent,
-    RepasComponent,
-    RecettesComponent,
-    HistoriqueComponent,
     ConnexionComponent,
-    ProfilComponent,
     Page404Component,
-    LineFoodComponent,
+    AnomalieComponent,
+    ParametrageComponent,
+    AvaliderComponent,
+    ValidesComponent,
 
     ],
 

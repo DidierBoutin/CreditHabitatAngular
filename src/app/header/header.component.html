@@ -1,36 +1,50 @@
-<mat-toolbar fxLayout="column" fxLayoutAlign="center">
-  <mat-toolbar-row class="toolbar" fxLayoutAlign="space-around" fxHide.xs>
-    <span>Nutrition & Wellness</span>
-  </mat-toolbar-row>
 
-  <mat-toolbar-row class="align" fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="space-around center" fxHide.xs>
-    <a id="fontSize" *ngFor="let m of menuService.getList('header')" [style.color]="menuService.selectedMenu.name === m.name ? 'pink' : 'grey'"
-      (click)="selectMenu(m, $event)" routerLink="{{m.path}}">
-      {{m.name}}
-  </a>
-  </mat-toolbar-row>
+<!-- <div id="conteneur"> -->
+    <div id="linemenu"> 
+        <div id="menu1">
+            <a id="choix"
+                *ngFor="let m of menuService.getList('header')" 
+                     [style.color]="m.color"
+                    [style.opacity]="menuService.selectedMenu.name === m.name ? '1' : '0.4'"
 
-  <mat-toolbar-row>
+                    
+                   >
+                    
+                    <div id=choixicon >
+                       <!-- /* <img src="{{m.icone}}" alt="{{m.name}}">*/ -->
+                       <mat-icon>{{m.icone}}</mat-icon>
+                       <a   [style.color]="m.color" 
+                       [style.font-weight]="menuService.selectedMenu.name === m.name ? 'bold' : 'normal'"
+                        [style.font-size]="menuService.selectedMenu.name === m.name ? '0.23em' : '0.2em'"
+                            (click)="selectMenu(m, $event)" routerLink="{{m.path}}">
+                       {{m.name}}
+        </a>
+                    </div>
+                    <!-- <div id=choixtitle >
+                        {{m.name}}
+                    </div> -->
+            </a>
+        </div>
+        <div id="menu2">
+            <div id="choix2" [style.font-size]="'0.22em'">
+                <div id=choixicon >
+                    <a href="/quitter" [style.color]="'grey'">
+                         <mat-icon>exit_to_app</mat-icon>
+                    </a>
+                 </div> 
+                <div id=choixtitle2>
+                    <a href="/quitter"  [style.color]="'grey'">
+                            Quitter 
+                    </a>
+                </div>
+            </div> 
+        </div>
+    </div>
+<!-- </div> -->
+      
+       
+       
+
+  
 
  
-  <div fxHide.gt-xs>
-    <button mat-icon-button [matMenuTriggerFor]="menu" class="col-md-1">
-      <mat-icon fl>more_vert</mat-icon>
-    </button>
-    <span id="titleResponsive" class="col-md-10">Nutrition & Wellness</span>
-    <mat-menu #menu="matMenu">
-      <ul fxLayout fxLayoutGap="20px" class="navigation-items">
-        <li>
-          <a mat-list-item routerLink="/connexion">Connexion </a>
-          <a mat-list-item routerLink="/aliments">Aliments </a>
-          <a mat-list-item routerLink="/repas">Repas </a>
-          <a mat-list-item routerLink="/recettes">Recettes </a>
-          <a mat-list-item routerLink="/historique">Historique </a>
-          <a mat-list-item routerLink="/profil">Profil </a>
-        </li>
-      </ul>
-    </mat-menu>
-  </div>
-</mat-toolbar-row>
-</mat-toolbar>
-&nbsp; &nbsp;

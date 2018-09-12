@@ -1,0 +1,312 @@
+
+.material-icons {
+  font-size: 15 vw;
+} 
+
+
+
+
+#conteneur {
+    font-family: cursive;
+    display: flex;	
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh; 
+    width: 100%;  
+    font-size:12px;
+      background-color: white;     
+
+}
+
+#menupage{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+ 
+          
+}
+
+#bodypage{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    /* max-width: 900px; */
+    height: 85%;
+ 
+  }
+
+#leftbody {
+    display: flex;
+    justify-content: center;
+    width: 2%;
+    height: 100%;
+  
+}
+
+#listebody {
+    display: flex;
+    justify-content: center;
+    width: 96%;
+   height: 100%; 
+
+}
+
+#rightbody {
+    display: flex;
+   width: 2%;
+   height: 100%;
+
+ 
+}
+
+#footpage{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 5%;
+  }
+
+  
+
+
+
+
+  /* A PARTIR D ICI ON REDEFINIT LES ATTRIBUTS DE NG2 SMART TABLE  
+  via (:host ::ng-deep) POUR PERSONALISER L'APPARENCE DE LA TABLE */
+  
+   
+
+  /**** redefinition de la colonne de mise à jour*/
+  :host ::ng-deep ng2-st-tbody-edit-delete  {  
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:5em;
+    padding-left: 1em;
+    padding-right : 1em;
+  }
+    
+
+
+  /* espace entre titre et filtre */
+ :host ::ng-deep ng2-smart-table table tr th {
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0.3em;
+  padding-left: 0;
+}
+
+
+
+  /* Init sur toute la table */
+  :host ::ng-deep ng2-smart-table table {
+    font-size: 15px; 
+     text-align: center;
+
+  }
+ 
+
+  /* pour redefinir la couleur des titres de colonnes  */
+  :host ::ng-deep ng2-smart-table-title > a 
+  { color: orange;
+     }
+
+   :host ::ng-deep ng2-st-column-title
+  {  
+    text-align: center;
+     }
+
+   /* pour redefinir l'aspect de la flèche - arrow- de tri */
+   :host ::ng-deep a.ng2-smart-sort-link.sort::after{
+    border-bottom: 0.5em solid rgb(58, 57, 73) !important ;
+     ;
+  }
+  
+ 
+   /* pour redefinir le formatage des filtres par colonne */
+   :host ::ng-deep input-filter > input.form-control {  
+    color: black;
+    height: 1.5vw;
+     text-align: left;
+    vertical-align: center;
+    }
+
+   /* pour redefinir le place holder des filtre par colonne*/
+  :host ::ng-deep input-filter > input.form-control::placeholder {  
+    color: black;
+    font-size: 0.6vw; 
+    font-style: italic;
+   }
+
+
+ 
+
+  /* pour définier l'espace entre les lignes et les bords */
+  :host ::ng-deep ng2-smart-table tbody>tr>td
+   { padding:0px 0px; border:solid 0.02vw orange; }
+
+   
+/* alignement à gauche pour les libellés  */
+ :host ::ng-deep ng2-smart-table tbody>tr>td:nth-child(3) {
+    text-align: left; padding:0 0.3vw;}
+  
+ 
+  
+
+
+
+   /*===============Redefinoion des actions de maj =======================*/  
+
+/* Redefinition de l'emplacement de l'icone de mis à jour ; centré et vert*/
+:host ::ng-deep ng2-smart-table table thead tr th.ng2-smart-actions-title.ng2-smart-actions-title-add {
+  text-align: center;}
+:host ::ng-deep ng2-smart-table table thead tr th a span{
+  color:green;}
+
+ /* def des palce holder en maj edition : vert italique */
+ :host ::ng-deep input-editor input.form-control::placeholder
+ {  
+   color: green;
+   font-size: 0.6vw; 
+   font-style: italic;
+   }
+
+/*box icônes de confirmation pour CREATIOB OK ou abandon */
+:host ::ng-deep ng2-st-actions a {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: red;
+  opacity: 0.6;
+}
+  /*Dans box icônes de confirmation pour CREATION ok ou abandon, couleur icone ok */
+:host ::ng-deep ng2-st-actions a.ng2-smart-action-add-create {
+  color: green;
+  opacity: 0.6;
+}
+
+
+
+/*box icônes de confirmation pour MAJ ok  ou abandon */
+:host ::ng-deep ng2-st-tbody-create-cancel a {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: red;
+  opacity: 0.6;
+}
+
+
+  /*Dans box icônes de confirmation pour MAJ ok ou abandon, couleur icone ok */
+  :host ::ng-deep ng2-st-tbody-create-cancel a.ng2-smart-action-edit-save {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: green;
+    opacity: 0.6;
+  }
+
+
+  /*couleur des icônes de delete*/
+:host ::ng-deep ng2-st-tbody-edit-delete a.ng2-smart-action-delete-delete {
+  color: black;
+ }
+
+/*couleur des icônes de modification*/
+:host ::ng-deep ng2-st-tbody-edit-delete a.ng2-smart-action-edit-edit {
+color:blue;
+opacity: 0.6;
+}
+
+/* pour modifier taille police dans box edit  { */
+  :host ::ng-deep select-editor select  {
+   font-size: 12px;
+  text-align: center;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  }
+
+  /* pour que le texte premiere colonne en EDITsoit centre  { */
+  :host ::ng-deep input-editor input.form-control.ng-untouched.ng-pristine{
+    text-align: center;
+  }
+
+  :host ::ng-deep input-editor input.form-control.ng-untouched.ng-pristine.ng-valid{
+  text-align: left;
+  padding-top: 3px;
+  padding-bottom:3px;
+
+}
+
+
+
+ /**================= pager ====================*/
+
+ /* clickable paging number  non selected*/
+
+ :host ::ng-deep a.ng2-smart-page-link.page-link {
+  height: 22px;
+  width: 40px;
+  text-align: center;
+  vertical-align: middle;
+  color: orange;
+  opacity: 0.8;
+
+  font-weight: bold;
+  line-height: 6px;
+}
+
+ /* clickable paging number  selected*/
+
+:host ::ng-deep span.ng2-smart-page-link.page-link {
+  height: 22px;
+  width: 40px;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  background-color: orange;
+  border-color:orange;
+  opacity: 0.8;
+
+  font-weight: bold;
+  line-height: 6px;
+}
+
+ 
+
+/* previous paging button left  */
+
+:host ::ng-deep a.ng2-smart-page-link.page-link.page-link-prev {
+  height: 22px;
+  width: 40px;
+  text-align: center;
+  vertical-align: middle;
+  color: orange;
+  opacity: 0.8;
+  font-weight: bold;
+  line-height: 6px;
+}
+
+
+/* next paging button right*/
+
+:host ::ng-deep a.ng2-smart-page-link.page-link.page-link-next {
+  height: 22px;
+  width: 40px;
+  text-align: center;
+  vertical-align: middle;
+  color: orange;
+  opacity: 0.8;
+  font-weight: bold;
+  line-height: 6px;
+}
+ 

@@ -11,6 +11,8 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
+
 isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
@@ -20,8 +22,12 @@ isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Ha
 
   ngOnInit() {
   }
+
 selectMenu (name) {
+
   this.menuService.selectedMenu = name;
 }
+
+
 
 }
