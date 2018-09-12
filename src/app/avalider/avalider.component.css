@@ -1,0 +1,197 @@
+
+  #conteneur {
+    font-family: cursive;
+    display: flex;	
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh; 
+    width: 100%;  
+    font-size: 12px;
+    background-color: white;     
+
+}
+
+#menupage{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+          
+}
+
+#bodypage{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    height: 85%;
+  }
+
+#leftbody {
+    display: flex;
+    justify-content: center;
+    width: 2%;
+    height: 100%;
+ 
+}
+
+#listebody {
+    display: flex;
+    max-width: 900px;
+   width: 96%;
+   height: 100%; 
+
+}
+
+#rightbody {
+    display: flex;
+   width: 2%;
+   height: 100%;
+ 
+}
+
+#footpage{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 5%;
+  }
+
+  
+  /* A PARTIR D ICI ON REDEFINIT LES ATTRIBUTS DE NG2 SMART TABLE  GRACE
+  AU PARAMETRE (:host ::ng-deep) POUR PERSONALISER L'APPARENCE DE LA TABLE */
+  
+  /* espace entre titre et filtre */
+ :host ::ng-deep ng2-smart-table table tr th {
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 5px;
+  padding-left: 0px;
+}
+
+
+
+  /* Init sur toute la table */
+  :host ::ng-deep ng2-smart-table table {
+    font-size: 15px; 
+    text-align: center;
+    color: black(253, 0, 76)
+
+  }
+ 
+
+  /* pour redefinir la couleur des titres de colonnes  */
+  :host ::ng-deep ng2-smart-table-title > a 
+  { color: red;
+     }
+
+   /* pour redefinir l'aspect de la flèche - arrow- de tri */
+   :host ::ng-deep a.ng2-smart-sort-link.sort::after{
+    border-bottom: 8px solid rgb(58, 57, 73) !important ;
+     ;
+  }
+
+ 
+   /* pour redefinir le formatage des filtres par colonne */
+   :host ::ng-deep input-filter > input.form-control {  
+    color: black;
+    height: 20px;
+     text-align: left;
+    vertical-align: center;
+    }
+
+   /* pour redefinir le place holder des filtre par colonne*/
+  :host ::ng-deep input-filter > input.form-control::placeholder {  
+    color: black;
+    font-size: 8px; 
+    font-style: italic;
+   }
+
+
+ 
+
+  /* pour définier l'espace entre les lignes et les bords */
+  :host ::ng-deep ng2-smart-table tbody>tr>td
+   { padding:0px 0px; border:solid 1px red; }
+
+   
+/* alignement à droite pour les colonnes (Materiel,Nb dossiers et Montant) */
+ 
+ :host ::ng-deep ng2-smart-table tbody>tr>td:nth-child(5) {
+    text-align: right; padding:0px 20px;}
+  :host ::ng-deep ng2-smart-table tbody>tr>td:nth-child(6) {
+  text-align: right; padding:0px 20px;}
+  :host ::ng-deep ng2-smart-table tbody>tr>td:nth-child(7) {
+    text-align: right; padding:0px 20px;}
+
+
+
+
+ /**** pager ******
+
+ /* clickable paging number  non selected*/
+
+:host ::ng-deep a.ng2-smart-page-link.page-link {
+  height: 22px;
+  width: 40px;
+  text-align: center;
+  vertical-align: middle;
+  color: red;
+  opacity: 0.3;
+
+  font-weight: bold;
+  line-height: 6px;
+}
+
+ /* clickable paging number  selected*/
+
+:host ::ng-deep span.ng2-smart-page-link.page-link {
+  height: 22px;
+  width: 40px;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  background-color:red;
+  border-color: red;
+  opacity: 0.3;
+
+  font-weight: bold;
+  line-height: 6px;
+}
+
+ 
+
+/* previous paging button left  */
+
+:host ::ng-deep a.ng2-smart-page-link.page-link.page-link-prev {
+  height: 22px;
+  width: 40px;
+  text-align: center;
+  vertical-align: middle;
+  color:red;
+  opacity: 0.3;
+  font-weight: bold;
+  line-height: 6px;
+}
+
+
+/* next paging button right*/
+
+:host ::ng-deep a.ng2-smart-page-link.page-link.page-link-next {
+  height: 22px;
+  width: 40px;
+  text-align: center;
+  vertical-align: middle;
+  color:red;
+  opacity: 0.3;
+  font-weight: bold;
+  line-height: 6px;
+}
+ 

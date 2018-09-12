@@ -9,12 +9,12 @@ import { Anomalie } from './interfaces';
 })
 export class AnomalieService {
 
-API_URL = 'http://localhost:8080/CreditHabitatBis/CreditHabitat';
+API_URL = 'http://localhost:8080/CreditHabitatBis/CreditHabitat/Anomalie';
 
   constructor(private http: HttpClient) {}
 
   getAllAnomalie(): Observable<Anomalie[]> {
-     return this.http.get<Anomalie[]>(this.API_URL + '/Anomalie');
+     return this.http.get<Anomalie[]>(this.API_URL);
   }
 
 

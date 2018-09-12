@@ -31,8 +31,6 @@ total: any;
     this.anoService.getAllAnomalie().subscribe(
       (anos) => {
 
-        /*this.source = new LocalDataSource(this.transformAnosToListNg2Smart(anos));*/
-
         this.source = new LocalDataSource(anos);
 
         this.formatSetting();
@@ -45,34 +43,6 @@ total: any;
       }
 
     );
-
-
-
-
-    }
-
-    transformAnosToListNg2Smart(anos: Anomalie[]): AnomalieNg2Smart[] {
-      let i: number;
-      const listAnoNg2Smart: AnomalieNg2Smart[] = [];
-
-      console.log('transformAnosToListNg2Smart: ');
-
-      // **************** Loop on each ano  *********************
-        for (i = 0; i < anos.length; i++) {
-
-
-          listAnoNg2Smart.push(
-            {societe: anos[i]['codeSoc'],
-            departement: anos[i]['codePTT'],
-            trimestre: anos[i]['numTrim'],
-            annee: anos[i]['anTrim'],
-            materiel: anos[i]['codeMat'],
-            nbdossiers: anos[i]['nbDoss'],
-            montant: anos[i]['mtAno'],
-             }) ;
-        }
-
-        return listAnoNg2Smart;
     }
 
 
