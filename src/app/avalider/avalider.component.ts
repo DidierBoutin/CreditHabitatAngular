@@ -12,6 +12,9 @@ export class AvaliderComponent implements OnInit {
   // data list of ng2-smart table
 source: LocalDataSource;
 
+selectedValue: string;
+
+
 
 // using by ng2-smart table to set parameter
 settings: any;
@@ -23,7 +26,7 @@ settings: any;
     this.avaliderService.getAllAnomalie().subscribe(
       (valider) => {
 
- 
+
         this.source = new LocalDataSource(valider);
 
         this.formatSetting();

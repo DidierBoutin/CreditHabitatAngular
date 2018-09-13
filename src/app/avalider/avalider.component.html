@@ -7,10 +7,22 @@
     <div id="leftbody">
     </div>
     <div id="listebody">
-      <ng2-smart-table  
+      <!-- <ng2-smart-table  
           [settings]="settings" 
           [source]="source" >
-      </ng2-smart-table>
+      </ng2-smart-table> -->
+      <form>
+        <mat-form-field>
+          <mat-select placeholder="Favorite food" [(ngModel)]="selectedValue" name="food">
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+              {{food.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      
+      </form>
+
+
     </div>
     <div id="rightbody">
     </div>
