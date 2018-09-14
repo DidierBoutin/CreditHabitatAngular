@@ -83,3 +83,17 @@ export interface Departement {
     title: string;
     value: string;
  }
+
+//  export interface AvaliderBoxRow {
+//     codeSoc: string;
+//     anTrim: number;
+//     numTrim: number;
+//     tot: number;
+//  }
+
+ export interface AvaliderBoxRow {
+    societe: string;
+    annee: number;
+    trimestre: number;
+    total: number;
+ }

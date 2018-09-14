@@ -147,9 +147,9 @@ export class ParametrageComponent implements OnInit {
 
   onDeleteConfirm(event) {
     if (window.confirm('Confirmez l\'annulation du  code materiel ' + event.data.codeMat + ', ou annulez la.')) {
-      // ***init screen without food deleted
+      // ***delete line in screen
       event.confirm.resolve();
-      // *****Delete food in  BDD
+      // *****Delete   in  BDD
       this.matService.deleteMateriel(event.data.codeMat).subscribe();
     } else {
       event.confirm.reject();
