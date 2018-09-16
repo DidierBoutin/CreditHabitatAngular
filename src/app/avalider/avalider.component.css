@@ -1,4 +1,10 @@
 
+  .material-icons {
+    font-size: 30px;
+  } 
+  
+  
+  
   #conteneur {
     font-family: cursive;
     display: flex;	
@@ -195,3 +201,15 @@
   line-height: 6px;
 }
  
+.champs {
+  height: 1px; /* Hauteur des champs */
+  width: 80px; /* Longueur des champs */
+  border: 3px 3px 3px 3px; /* Epaisseur de la bordure s'il y a lieu */
+  border-color: red; /* Couleur de la bordure s'il y a lieu */
+  background: green; /* Couleur du fond du champ */
+
+}
+
+.input {
+  border: 1px solid #999
+}

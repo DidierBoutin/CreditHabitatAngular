@@ -1,55 +1,67 @@
- <div id="conteneur">
+<div id="conteneur">
 
   <div id="menupage">
-   </div>
-  
+    <form>
+      <div>Société</div>
+      <mat-form-field class="champs">
+        <mat-select [(ngModel)]="selectedSoc" name="soc" (selectionChange)="changeBoxes()">
+          <mat-option *ngFor="let soc of listSoc" [value]="soc">
+            {{soc}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+
+    <form>
+      <div>Année</div>
+      <mat-form-field class="champs">
+        <mat-select [(ngModel)]="selectedAn" name="an" (selectionChange)="changeBoxes()">
+          <mat-option *ngFor="let an of listAn" [value]="an">
+            {{an}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+
+    <form>
+      <div>Trimestre</div>
+      <mat-form-field class="champs">
+        <mat-select [(ngModel)]="selectedTrim" name="trim" (selectionChange)="changeBoxes()">
+          <mat-option *ngFor="let trim of listTrim" [value]="trim">
+            {{trim}}
+          </mat-option>ew
+        </mat-select>
+      </mat-form-field>
+    </form>
+
+    <div> {{totalOfSelecting}}</div>
+
+    <button mat-icon-button   (click)="validation()">
+        <mat-icon 
+            aria-label="validation"  
+            [style.color]="'blue'"
+            >
+        thumb_up</mat-icon>
+      </button>
+
+
+
+  </div>
+
   <div id="bodypage">
     <div id="leftbody">
     </div>
     <div id="listebody">
-      
-      <form>
-        <div>Société</div>
-        <mat-form-field>
-          <mat-select   [(ngModel)]="selectedSoc" name="soc" (selectionChange)="changeBoxes()"> 
-            <mat-option *ngFor="let soc of listSoc" [value]="soc">
-              {{soc}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </form>
-
-      <form>
-          <div>Année</div>
-          <mat-form-field>
-            <mat-select   [(ngModel)]="selectedAn" name="an" (selectionChange)="changeBoxes()"> 
-              <mat-option *ngFor="let an of listAn" [value]="an">
-                {{an}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </form>
-
-        <form>
-            <div>Trimestre</div>
-            <mat-form-field>
-              <mat-select   [(ngModel)]="selectedTrim" name="trim" (selectionChange)="changeBoxes()"> 
-                <mat-option *ngFor="let trim of listTrim" [value]="trim">
-                  {{trim}}
-                </mat-option>ew
-              </mat-select>
-            </mat-form-field>
-          </form>
-
+      <ng2-smart-table 
+        [settings]="settings" 
+        [source]="source">
+      </ng2-smart-table>
     </div>
     <div id="rightbody">
-      <ng2-smart-table  
-          [settings]="settings" 
-          [source]="source" >
-      </ng2-smart-table>
+
     </div>
   </div>
 
-   
- 
+
+
 </div>

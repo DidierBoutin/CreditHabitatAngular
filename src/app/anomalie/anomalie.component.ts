@@ -33,6 +33,11 @@ total: any;
 
         this.source = new LocalDataSource(anos);
 
+        console.log('o');
+
+        console.log(this.source);
+        console.log(this.source.empty);
+
         this.formatSetting();
 
 
