@@ -2,7 +2,7 @@
 
   <div id="menupage">
     <form>
-      <div>Société</div>
+      <div class="titrechamps">Société</div>
       <mat-form-field class="champs">
         <mat-select [(ngModel)]="selectedSoc" name="soc" (selectionChange)="changeBoxes()">
           <mat-option *ngFor="let soc of listSoc" [value]="soc">
@@ -13,7 +13,7 @@
     </form>
 
     <form>
-      <div>Année</div>
+      <div class="titrechamps">Année</div>
       <mat-form-field class="champs">
         <mat-select [(ngModel)]="selectedAn" name="an" (selectionChange)="changeBoxes()">
           <mat-option *ngFor="let an of listAn" [value]="an">
@@ -24,26 +24,53 @@
     </form>
 
     <form>
-      <div>Trimestre</div>
-      <mat-form-field class="champs">
-        <mat-select [(ngModel)]="selectedTrim" name="trim" (selectionChange)="changeBoxes()">
-          <mat-option *ngFor="let trim of listTrim" [value]="trim">
+      <div class="titrechamps"> Trimestre</div>
+      <mat-form-field class="champs" >
+        <mat-select  [(ngModel)]="selectedTrim" name="trim" (selectionChange)="changeBoxes()">
+          <mat-option  *ngFor="let trim of listTrim" [value]="trim">
             {{trim}}
-          </mat-option>ew
+          </mat-option>
         </mat-select>
       </mat-form-field>
     </form>
 
     <div> {{totalOfSelecting}}</div>
 
-    <button mat-icon-button   (click)="validation()">
+    <button mat-icon-button   (click)="openDialog()">
         <mat-icon 
-            aria-label="validation"  
+            aria-label="save"  
             [style.color]="'blue'"
             >
         thumb_up</mat-icon>
       </button>
-
+      <div class="container">
+        <h2>Modal Example</h2>
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+      
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+              </div>
+              <div class="modal-body">
+                <p>Some text in the modal.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
 
 
   </div>

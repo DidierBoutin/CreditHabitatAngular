@@ -11,7 +11,7 @@ export class AvaliderService {
   constructor(private http: HttpClient) {}
 
 
-  API_URL = 'http://localhost:8080/CreditHabitatBis/CreditHabitat/Declarer/';
+  API_URL = 'http://localhost:8080/CreditHabitatBis/CreditHabitat/Donnees/';
 
 
   getAvaliderBox(): Observable<AvaliderBoxRow[]> {
@@ -19,11 +19,8 @@ export class AvaliderService {
   }
 
   getAvaliderList(soc: String, an: number, trim: number ): Observable<any> {
-
     console.log('this.API_URL');
-
     console.log(this.API_URL +  soc + '/' + an + '/' + trim);
-
     return this.http.get<any>(this.API_URL +  soc + '/' + an + '/' + trim);
  }
 }

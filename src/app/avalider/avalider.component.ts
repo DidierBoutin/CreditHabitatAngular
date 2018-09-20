@@ -1,8 +1,15 @@
 import { map } from 'rxjs/operators';
 import { AvaliderBoxRow, Societe } from './../interfaces';
 import { LocalDataSource } from 'ng2-smart-table';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { AvaliderService } from '../avalider.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import {MatDialogModule} from '@angular/material';
+
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 
 @Component({
   selector: 'app-avalider',
@@ -30,7 +37,14 @@ export class AvaliderComponent implements OnInit {
   // using by ng2-smart table to set parameter
   settings: any;
 
-  constructor(public avaliderService: AvaliderService) { }
+
+
+
+  animal: string;
+  name: string;
+
+
+  constructor(public avaliderService: AvaliderService, public dialog: MatDialog) { }
 
   ngOnInit() {
 
@@ -98,6 +112,19 @@ export class AvaliderComponent implements OnInit {
 
       }
     );
+  }
+
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AvaliderComponentDialogComponent, {
+      width: '250px',
+      data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
   }
 
 
@@ -208,3 +235,31 @@ export class AvaliderComponent implements OnInit {
 
 
 }
+
+
+@Component({
+  selector: 'app-avalider-component-dialog',
+  templateUrl: './avalider.component.dialog.html'
+})
+export class AvaliderComponentDialogComponent {
+
+  constructor(
+    public avaliderService: AvaliderService,
+    public dialogRef: MatDialogRef<AvaliderComponentDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  abandonSave(): void {
+
+    this.dialogRef.close();
+  }
+
+  save(): void {
+console.log('ypo2') ;
+/*this.avaliderService.saveAvalider(selectedSoc,selectedAn,selectedTrim,'RM1').subscribe();*/
+
+
+
+this.dialogRef.close(); }
+
+}
+

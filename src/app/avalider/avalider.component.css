@@ -1,6 +1,6 @@
 
   .material-icons {
-    font-size: 30px;
+    font-size: 40px;
   } 
   
   
@@ -202,12 +202,26 @@
 }
  
 .champs {
-  height: 1px; /* Hauteur des champs */
+  height: 40px; /* Hauteur des champs */
   width: 80px; /* Longueur des champs */
-  border: 3px 3px 3px 3px; /* Epaisseur de la bordure s'il y a lieu */
-  border-color: red; /* Couleur de la bordure s'il y a lieu */
-  background: green; /* Couleur du fond du champ */
+  border: 1px solid; /* Epaisseur de la bordure s'il y a lieu */
+  border-color: black; /* Couleur de la bordure s'il y a lieu */
+  text-align: center;
 
+}
+
+
+.titrechamps {
+  height: 25px; /* Hauteur des champs */
+  width: 80px; /* Longueur des champs */
+  border: 1px solid; /* Epaisseur de la bordure s'il y a lieu */
+  border-color: black; /* Couleur de la bordure s'il y a lieu */
+  text-align: center;
+
+}
+
+:host ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+  height:0;
 }
 
 .input {

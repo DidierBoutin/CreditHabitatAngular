@@ -1,6 +1,8 @@
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {MatDialogModule} from '@angular/material';
+
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,7 +21,7 @@ import { MatToolbarModule, MatCardModule, MatAutocompleteModule,
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
  import { AnomalieComponent } from './anomalie/anomalie.component';
 import { ParametrageComponent } from './parametrage/parametrage.component';
-import { AvaliderComponent } from './avalider/avalider.component';
+import { AvaliderComponent, AvaliderComponentDialogComponent } from './avalider/avalider.component';
 import { ValidesComponent } from './valides/valides.component';
 
 
@@ -65,7 +67,7 @@ component: Page404Component  }
     ParametrageComponent,
     AvaliderComponent,
     ValidesComponent,
-
+    AvaliderComponentDialogComponent
     ],
 
   imports: [
@@ -88,10 +90,12 @@ component: Page404Component  }
     MatButtonModule,
     Ng2SmartTableModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule,
+
             ],
 
-
+  entryComponents: [AvaliderComponentDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
