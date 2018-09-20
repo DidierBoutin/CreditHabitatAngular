@@ -4,11 +4,13 @@ import { LocalDataSource } from 'ng2-smart-table';
 import { Component, OnInit, Inject } from '@angular/core';
 import { AvaliderService } from '../avalider.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import {MatDialogModule} from '@angular/material';
+import { MatDialogModule } from '@angular/material';
 
+// /*pour le dialogue avec la pop up */
 export interface DialogData {
-  animal: string;
-  name: string;
+  soc: String;
+  an: number;
+  trim: number;
 }
 
 @Component({
@@ -21,32 +23,39 @@ export class AvaliderComponent implements OnInit {
   // data list of ng2-smart table
   source: LocalDataSource;
 
-
+ // Svgde des criteres selectionnés
   selectedSoc: string;
   selectedAn: number;
   selectedTrim: number;
+
+  // svde du total pour les criteres selectionnés
   totalOfSelecting: string;
 
+  // svgde le la liste de toutes les combinaisons possibles des 3 criters(soc, an, trim)
+  listbox: any[];
+  // svgde le la liste des critères possibles pour chacun des 3
   listSoc: String[];
   listAn: number[];
   listTrim: number[];
-  listbox: any[];
-  data: any[];
-
 
   // using by ng2-smart table to set parameter
   settings: any;
-
-
-
-
-  animal: string;
-  name: string;
+  dataList: any[];
 
 
   constructor(public avaliderService: AvaliderService, public dialog: MatDialog) { }
 
   ngOnInit() {
+
+    /* recherche des valeurs 3 criteres possibles  */
+    this.prepareScreen();
+
+  }
+
+
+  prepareScreen() {
+
+    console.log('prepareScreen');
 
     this.avaliderService.getAvaliderBox().subscribe(
       (box: AvaliderBoxRow[]) => {
@@ -74,71 +83,87 @@ export class AvaliderComponent implements OnInit {
       () => {
         this.getListAvalider();
       }
-
-
     );
-
-
 
   }
 
+
+   /* pour une nouvelle selection, on reaffiche la liste principale */
+   public changeBoxes() {
+    this.getListAvalider();
+  }
+
+  /*recuperation des donnes pour affichage sur liste principam*/
   public getListAvalider() {
 
     this.avaliderService.getAvaliderList(this.selectedSoc, this.selectedAn, this.selectedTrim).subscribe(
-
       (data) => {
-
-        this.data = data;
+        this.dataList = data;
         this.source = new LocalDataSource(data);
-
       },
 
       (error) => { console.log('err'); },
+
+      /*ici on a recuperer toutes les donnees, on peut les affichier*/
       () => {
-
-
-        if (this.data.length === 0) {
+        if (this.dataList.length === 0) {
           this.totalOfSelecting = '0,00 €';
         } else {
           this.totalOfSelecting =
             Intl.NumberFormat('fr-fr', { style: 'currency', currency: 'EUR' })
-                .format(this.listbox.find(elt => (elt.societe === this.selectedSoc)
-                                                && (elt.annee === this.selectedAn)
-                                                && (elt.trimestre === this.selectedTrim))
+              .format(this.listbox.find(elt => (elt.societe === this.selectedSoc)
+                && (elt.annee === this.selectedAn)
+                && (elt.trimestre === this.selectedTrim))
                 .total);
         }
-
+        /* formattage de Ng2-smart-table */
         this.formatSetting();
-
       }
     );
   }
 
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(AvaliderComponentDialogComponent, {
-      width: '250px',
-      data: {name: this.name, animal: this.animal}
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.animal = result;
-    });
-  }
 
 
   public validation() {
+    console.log('valdation');
+    /*on insere les enregs dans la table declarer */
+    this.avaliderService.saveAvalider(this.selectedSoc, this.selectedAn, this.selectedTrim).subscribe(
+    (data) => {console.log('save les maj se font'); } ,
+      (error) => { console.log(' avaliderService.saveAvalider err '); },
+    () => {console.log('save termine');
+      /* on supprime les enereg de la table données */
+      this.avaliderService.deleteAvalider(this.selectedSoc, this.selectedAn, this.selectedTrim).subscribe(
+        (data) => {console.log('delete les maj se font'); } ,
 
+          (error) => { console.log('err'); },
+
+          () => {console.log('del fini');
+              /* rreinit ecran */
+                  this.prepareScreen(); } );
+          }
+    );
   }
 
-  public changeBoxes() {
-
-    this.getListAvalider();
 
 
+  /*gestion de la pop up de confirmation de save */
+  openDialog(): void {
 
+
+    /* ouverture de la p opup, ==>  gestion dans AvaliderComponentDialogComponent*/
+    const dialogRef = this.dialog.open(AvaliderComponentDialogComponent, {
+      width: '500px',
+      data: {soc: this.selectedSoc, an: this.selectedAn, trim: this.selectedTrim}
+    });
+    /* retour de la popup*/
+    dialogRef.afterClosed().subscribe(validOK => {
+        if (validOK) {this.validation(); }
+    });
   }
+
+
 
 
   // setting ng2smarttable
@@ -230,36 +255,31 @@ export class AvaliderComponent implements OnInit {
       },
     };
   }
-
-
-
-
 }
 
 
+
+/*=======GESTION POP UP=======*/
 @Component({
   selector: 'app-avalider-component-dialog',
   templateUrl: './avalider.component.dialog.html'
 })
+
 export class AvaliderComponentDialogComponent {
 
   constructor(
-    public avaliderService: AvaliderService,
     public dialogRef: MatDialogRef<AvaliderComponentDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-
+    @Inject(MAT_DIALOG_DATA) public data: DialogData
+    /*@Inject(MAT_DIALOG_DATA) public data: DialogData) { }*/
+  ) {}
   abandonSave(): void {
-
-    this.dialogRef.close();
+    this.dialogRef.close(false);
   }
 
   save(): void {
-console.log('ypo2') ;
-/*this.avaliderService.saveAvalider(selectedSoc,selectedAn,selectedTrim,'RM1').subscribe();*/
-
-
-
-this.dialogRef.close(); }
+     console.log('ypo2');
+      this.dialogRef.close(true);
+  }
 
 }
 

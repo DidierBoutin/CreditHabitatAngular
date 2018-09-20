@@ -1,13 +1,14 @@
 <h1 mat-dialog-title>Confirmation</h1>
 <div mat-dialog-content>
-  <p>Pour confirmer la validation, veuillez appuyez sur OK, sinon sur Abandon</p>
+  <p>Pour confirmer la validation de la societé <b>{{data.soc}}</b> pour l'annéé <b>{{data.an}}</b> et le trimestre <b>{{data.trim}}</b>,</p>
+  <p>veuillez appuyez sur <b>OK</b>, sinon sur <b>Abandon</b> : </p>
   <!-- <mat-form-field>
     <input matInput [(ngModel)]="data.animal">
   </mat-form-field> -->
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="abandonSave()">Abandon</button>
+  <button mat-button   (click)="abandonSave()">Abandon</button>
   <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
-  <button mat-button cdkFocusInitial (click)="save()">Ok</button>
+  <button mat-button  cdkFocusInitial (click)="save()">Ok</button>
 
 </div>
