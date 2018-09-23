@@ -4,6 +4,13 @@
         font-size: 28px;
       } 
 
+
+/* supression du surlignement */
+      a:link 
+      { 
+      text-decoration:none; 
+      } 
+
 #linemenu {
         display: flex;
         flex-direction: row;
@@ -13,6 +20,8 @@
         height: 15vh;
         border: 3px solid black;  
         max-height: 70px;
+        min-height: 40px;
+
         /*/max-height: 80px; */
         font-size: 3vw;
 
@@ -64,61 +73,50 @@
  
 }
     
-#choixicon {
+.choixicon {
         display: flex;   
         flex-direction: column;
-
         justify-content: center;
         align-items: center;
 
          width: 100%;
-        height: 50%;
- }
-#choixicon img{   
-        display: flex;   
-        justify-content: center;
-        align-items: center; 
-        width: auto;
-        height: auto;
+        height: 100%;
  }
 
-
-#choixtitle {
-        display: flex;   
-        justify-content: center;
-        align-items: center; 
-        width: 100%;
-        height: 50%;
+ .titleicone {
+         padding-top: 5px;
  }
 
-#choixtitle2 {
-        display: flex;  
-        justify-content: center;
-        align-items: center;  
-        width: 100%;
-        height:50%;
-}
 
 
 /* redefiniton si taille < 1000px*/
 @media screen and (max-width: 1000px) {
 
+        
+        .material-icons {
+                font-size: 60px;
+              } 
+        
+        
+        
+        
+        
+        
         #linemenu {
                 display: flex;
                 flex-direction: column-reverse;
                 justify-content: start;
                 align-items: center;
                 /* mib=n=width: 2vh; */
-                height: 500px;
-                min-width: 12vh;
-                max-width: 12vh;
+                 min-width: 90px;
+                max-width: 90px;
 
                  /* min-width: 800px;
                 max-width: 800px; */
 
-                        max-height: 65vw;
-                        min-height: 65vw;
-                        font-size: 8vh;
+                        max-height: 1500px;
+                        min-height: 1500px;
+                        /* font-size: 8vh;*/
  
         }
         

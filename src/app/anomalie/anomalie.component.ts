@@ -40,7 +40,7 @@ total: any;
 
         this.formatSetting();
         delete this.settings.columns['codePTT'];
- 
+
 
         console.log('this.source.count(): ');
         console.log(this.source.count());
@@ -81,8 +81,6 @@ total: any;
           sort: true,
           width: '5%',
            filter: true,
-           show: false
-
         },
         codePTT: {
           title: 'Département',

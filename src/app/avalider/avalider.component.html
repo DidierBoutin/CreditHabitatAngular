@@ -1,65 +1,76 @@
 <div id="conteneur">
 
   <div id="menupage">
-    <form>
-      <div class="titrechamps">Société</div>
-      <mat-form-field class="champs">
-        <mat-select [(ngModel)]="selectedSoc" name="soc" (selectionChange)="changeBoxes()">
-          <mat-option *ngFor="let soc of listSoc" [value]="soc">
-            {{soc}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </form>
 
-    <form>
-      <div class="titrechamps">Année</div>
-      <mat-form-field class="champs">
-        <mat-select [(ngModel)]="selectedAn" name="an" (selectionChange)="changeBoxes()">
-          <mat-option *ngFor="let an of listAn" [value]="an">
-            {{an}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </form>
+    <div id="selection">
+      <div id=bloccriteres>
 
-    <form>
-      <div class="titrechamps"> Trimestre</div>
-      <mat-form-field class="champs" >
-        <mat-select  [(ngModel)]="selectedTrim" name="trim" (selectionChange)="changeBoxes()">
-          <mat-option  *ngFor="let trim of listTrim" [value]="trim">
-            {{trim}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </form>
 
-    <div> {{totalOfSelecting}}</div>
+        <table id="blocform" class="critere">
+          <tr>
+            <th class="titrechamps">Société</th>
+            <th class="titrechamps">Année</th>
+            <th class="titrechamps">Trimestre </th>
+            <th class="titrechamps">Total </th>
 
-    <button mat-icon-button   (click)="openDialog()">
-        <mat-icon 
-            aria-label="save"  
-            [style.color]="'blue'"
-            >
-        thumb_up</mat-icon>
+
+          </tr>
+          <tr>
+            <td class="champs">
+              <mat-form-field class="desactivform">
+                <mat-select [(ngModel)]="selectedSoc" name="soc" (selectionChange)="changeBoxes()">
+                  <mat-option *ngFor="let soc of listSoc" [value]="soc">
+                    {{soc}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+          
+            <td class="champs">
+              <mat-form-field class="desactivform">
+                <mat-select [(ngModel)]="selectedAn" name="an" (selectionChange)="changeBoxes()">
+                  <mat-option *ngFor="let an of listAn" [value]="an">
+                    {{an}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+           
+            <td class="champs">
+              <mat-form-field class="desactivform">
+                <mat-select [(ngModel)]="selectedTrim" name="trim" (selectionChange)="changeBoxes()">
+                  <mat-option *ngFor="let trim of listTrim" [value]="trim">
+                    {{trim}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+            <td class="champs der">{{totalOfSelecting}}</td>
+ 
+          </tr>
+        </table>
+
+
+
+
+
+      </div>
+
+      
+
+      <button class="boutonvalid" mat-icon-button (click)="openDialog()">
+        <mat-icon aria-label="save" [style.color]="'blue'">
+          thumb_up</mat-icon>
       </button>
 
+    </div>
+
   </div>
+
 
   <div id="bodypage">
-    <div id="leftbody">
-    </div>
-    <div id="listebody">
-      <ng2-smart-table 
-        [settings]="settings" 
-        [source]="source">
-      </ng2-smart-table>
-    </div>
-    <div id="rightbody">
-
-    </div>
+    <ng2-smart-table [settings]="settings" [source]="source">
+    </ng2-smart-table>
   </div>
-
-
 
 </div>

@@ -1,47 +1,38 @@
 
-<!-- <div id="conteneur"> -->
-    <div id="linemenu"> 
+     <div id="linemenu"> 
         <div id="menu1">
-            <a id="choix"
+            <div id="choix"
                 *ngFor="let m of menuService.getList('header')" 
                      [style.color]="m.color"
-                    [style.opacity]="menuService.selectedMenu.name === m.name ? '1' : '0.4'"
+                    [style.opacity]="menuService.selectedMenu.name === m.name ? '1' : '0.2'">
+                    
+                        <a      [style.color]="m.color" 
+                                [style.font-weight]="menuService.selectedMenu.name === m.name ? 'bold' : 'normal'"
+                                [style.font-size]="menuService.selectedMenu.name === m.name ? '0.25em' : '0.2em'"
+                                (click)="selectMenu(m, $event)" routerLink="{{m.path}}">
+                                <div class="choixicon" >
+                                    <mat-icon>{{m.icone}}</mat-icon>
+                                    <div class="titleicone">{{m.name}}</div>
+                                </div>   
 
-                    
-                   >
-                    
-                    <div id=choixicon >
-                       <!-- /* <img src="{{m.icone}}" alt="{{m.name}}">*/ -->
-                       <mat-icon>{{m.icone}}</mat-icon>
-                       <a   [style.color]="m.color" 
-                       [style.font-weight]="menuService.selectedMenu.name === m.name ? 'bold' : 'normal'"
-                        [style.font-size]="menuService.selectedMenu.name === m.name ? '0.23em' : '0.2em'"
-                            (click)="selectMenu(m, $event)" routerLink="{{m.path}}">
-                       {{m.name}}
-        </a>
-                    </div>
-                    <!-- <div id=choixtitle >
-                        {{m.name}}
-                    </div> -->
-            </a>
+                        </a>
+            </div>
         </div>
         <div id="menu2">
-            <div id="choix2" [style.font-size]="'0.22em'">
-                <div id=choixicon >
-                    <a href="/quitter" [style.color]="'grey'">
-                         <mat-icon>exit_to_app</mat-icon>
+            <div id="choix2"    [style.font-weight]="'normal'" 
+                                [style.font-size]="'0.25em'">
+                    <a href="/quitter"  [style.color]="'black'">
+                        <div class="choixicon" >
+                            <mat-icon>exit_to_app</mat-icon>
+                            <div class="titleicone"> Quitter </div>
+
+                        </div> 
                     </a>
-                 </div> 
-                <div id=choixtitle2>
-                    <a href="/quitter"  [style.color]="'grey'">
-                            Quitter 
-                    </a>
-                </div>
-            </div> 
+
+             </div> 
         </div>
     </div>
-<!-- </div> -->
-      
+       
        
        
 
