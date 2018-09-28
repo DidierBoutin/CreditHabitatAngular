@@ -1,0 +1,292 @@
+
+  .material-icons {
+    font-size: 2vw;
+  } 
+  
+
+  /* permet d'utiliser des variables et les affecter à tous les éléments */
+  * {
+    --main-background-color: white;     
+    --main-color: green;
+    --main-font-size: 0.8vw;
+    --padding-cell: 1vw;
+
+  }
+  
+
+  #conteneur {
+    font-family: cursive;
+    display: flex;	
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 90vh; 
+    width: 100%;  
+    font-size: var(--main-font-size);   
+    background-color: var(--main-background-color);     
+
+}
+
+ 
+
+#menupage{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    height: 20%;  
+    
+}
+
+ 
+
+#selection{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  height: 100%; 
+ 
+}
+
+#contexte{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  width: 50%;
+  height: 100%; 
+ 
+}
+
+
+#bloccriteres{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100%; 
+}
+
+ 
+
+
+
+
+.critere{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-collapse: collapse;
+
+ }
+
+.desactivform
+  {width: 5vw; 
+  height: 2.5vw; 
+  text-align: center}
+
+.titrechamps {
+  width: 5vw;  
+  height: 2vw;  
+
+  border: 1px  solid var(--main-color);  
+ 
+   text-align: center;
+  
+}
+
+.champs {
+  height: 2vw; 
+  width: 5vw;  
+  border: 1px solid var(--main-color);  
+   text-align: center;
+}
+ 
+.der {
+   width: 8vw;  
+   text-align: right;
+   padding-right: 6px;
+
+  
+}
+
+ 
+
+
+
+ 
+ 
+ 
+
+
+:host ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+  height:0;
+}
+ 
+
+
+
+
+
+#bodypage{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+     width: 100%;
+     height: 80%;
+     padding-left: 2vw;
+     padding-right: 2vw;
+     max-height: 600px;
+
+
+
+  }
+
+ 
+ 
+
+ 
+
+ 
+  
+  /* A PARTIR D ICI ON REDEFINIT LES ATTRIBUTS DE NG2 SMART TABLE  GRACE
+  VIA  (:host ::ng-deep) POUR PERSONALISER L'APPARENCE DE LA TABLE */
+  
+  /* espace entre titre et filtre */
+ :host ::ng-deep ng2-smart-table table tr th {
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 5px;
+  padding-left: 0px;
+}
+
+
+  /* Init sur toute la table */
+  :host ::ng-deep ng2-smart-table table {
+    font-size: var(--main-font-size); 
+    text-align: center;
+    color: black(253, 0, 76)
+
+  }
+ 
+
+  /* pour redefinir la couleur des titres de colonnes  */
+  :host ::ng-deep ng2-smart-table-title > a 
+  { color: var(--main-color);
+     }
+
+   /* pour redefinir l'aspect de la flèche - arrow- de tri */
+   :host ::ng-deep a.ng2-smart-sort-link.sort::after{
+    border-bottom: 8px solid rgb(58, 57, 73) !important ;
+     ;
+  }
+
+ 
+   /* pour redefinir le formatage des filtres par colonne */
+   :host ::ng-deep input-filter > input.form-control {  
+    color: black;
+    height: 20px;
+     text-align: left;
+    vertical-align: center;
+    }
+
+   /* pour redefinir le place holder des filtre par colonne*/
+  :host ::ng-deep input-filter > input.form-control::placeholder {  
+    color: black;
+    font-size: 8px; 
+    font-style: italic;
+   }
+
+
+ 
+
+  /* pour définier l'espace entre les lignes et les bords */
+  :host ::ng-deep ng2-smart-table tbody>tr>td
+   { padding: 0px 0px; border:solid 1px var(--main-color); }
+
+   
+/* alignement   dans les colonnes non cetrées (centre par défaut) */
+ 
+:host ::ng-deep ng2-smart-table tbody>tr>td:nth-child(1) {
+  text-align: left; padding:0 var(--padding-cell);}
+
+  :host ::ng-deep ng2-smart-table tbody>tr>td:nth-child(3) {
+    text-align: right; padding:0px var(--padding-cell);}
+  :host ::ng-deep ng2-smart-table tbody>tr>td:nth-child(4) {
+    text-align: right; padding:0px var(--padding-cell);}
+ :host ::ng-deep ng2-smart-table tbody>tr>td:nth-child(5) {
+    text-align: right; padding:0px var(--padding-cell);}
+  :host ::ng-deep ng2-smart-table tbody>tr>td:nth-child(6) {
+  text-align: right; padding:0px var(--padding-cell);}
+  :host ::ng-deep ng2-smart-table tbody>tr>td:nth-child(7) {
+    text-align: right; padding:0px var(--padding-cell);}
+
+
+
+  
+ 
+ /**** pager ******
+
+ /* clickable paging number  non selected*/
+
+:host ::ng-deep a.ng2-smart-page-link.page-link {
+  height: 22px;
+  width: 40px;
+  text-align: center;
+  vertical-align: middle;
+  color: var(--main-color);
+  opacity: 0.3;
+
+  font-weight: bold;
+  line-height: 6px;
+}
+
+ /* clickable paging number  selected*/
+
+:host ::ng-deep span.ng2-smart-page-link.page-link {
+  height: 22px;
+  width: 40px;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+  opacity: 0.3;
+  font-weight: bold;
+  line-height: 6px;
+}
+
+ 
+
+/* previous paging button left  */
+
+:host ::ng-deep a.ng2-smart-page-link.page-link.page-link-prev {
+  height: 22px;
+  width: 40px;
+  text-align: center;
+  vertical-align: middle;
+  color:var(--main-color);
+  opacity: 0.3;
+  font-weight: bold;
+  line-height: 6px;
+}
+
+
+/* next paging button right*/
+
+:host ::ng-deep a.ng2-smart-page-link.page-link.page-link-next {
+  height: 22px;
+  width: 40px;
+  text-align: center;
+  vertical-align: middle;
+  color: var(--main-color);
+  opacity: 0.3;
+  font-weight: bold;
+  line-height: 6px;
+}
+ 

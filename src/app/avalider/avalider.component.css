@@ -1,6 +1,6 @@
 
   .material-icons {
-    font-size: 25px;
+    font-size: 2vw;
   } 
   
 
@@ -8,8 +8,8 @@
   * {
     --main-background-color: white;     
     --main-color: blue;
-    --main-font-size: 12px;
-    --padding-cell: 10px;
+    --main-font-size: 0.8vw;
+    --padding-cell: 1vw;
 
   }
   
@@ -27,16 +27,16 @@
 
 }
 
+ 
+
 #menupage{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: start;
     align-items: center;
     width: 100%;
-    height: 25%;  
-    /* padding-top: 100px;
-    padding-bottom: 50px;       */
-
+    height: 20%;  
+    
 }
 
  
@@ -44,24 +44,41 @@
 #selection{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  width: 100%;
+  width: 50%;
   height: 100%; 
  
-
 }
+
+#contexte{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  width: 50%;
+  height: 100%; 
+ 
+}
+
 
 #bloccriteres{
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 80%;
   height: 100%; 
- 
-
 }
+
+.boutonvalid{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  width: 5%;
+ }
+
 
 
 
@@ -75,13 +92,14 @@
  }
 
 .desactivform
-  {width: 80px; 
-  height: 40px; 
+  {width: 5vw; 
+  height: 2.5vw; 
   text-align: center}
 
 .titrechamps {
-  height: 25px;  
-  width: 80px;  
+  width: 5vw;  
+  height: 2vw;  
+
   border: 1px  solid var(--main-color);  
  
    text-align: center;
@@ -89,14 +107,14 @@
 }
 
 .champs {
-  height: 40px; 
-  width: 80px;  
+  height: 2vw; 
+  width: 5vw;  
   border: 1px solid var(--main-color);  
    text-align: center;
 }
  
 .der {
-   width: 140px;  
+   width: 8vw;  
    text-align: right;
    padding-right: 6px;
 
@@ -107,37 +125,10 @@
 
 
 
-.totalcritere{
-   width: 100px;
-  display: table;
-    text-align: center;
-   border-collapse: collapse;
-
-
- }
  
- .boutonvalid{
-  width: 5%;
- }
-
-
-.titrechampstot {
-   height: 25px;  
-  line-height:25px;
-  border: 2px solid var(--main-color);  
- 
-
- }
-
-.champstot {
-   height: 40px; 
-  line-height:40px;
-  border: 2px solid var(--main-color); 
-  
  
  
 
-}
 
 :host ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
   height:0;
@@ -154,9 +145,13 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    /* max-width: 900px; */
-    
-     height: 75%;
+     height: 80%;
+     padding-left: 2vw;
+     padding-right: 2vw;
+     max-height: 600px;
+
+
+
   }
 
  

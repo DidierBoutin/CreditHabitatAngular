@@ -3,6 +3,7 @@ import { RegroupementService } from './../regroupement.service';
 import { MaterielService } from './../materiel.service';
 import { LocalDataSource } from 'ng2-smart-table';
 import { Component, OnInit } from '@angular/core';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-parametrage',
@@ -20,7 +21,7 @@ export class ParametrageComponent implements OnInit {
   // Objet  {title, value} utiliser par ng2-smart-table
   listBox: BoxEditNg2[] = [];
 
-
+  param: number;
 
   constructor(public matService: MaterielService, public regroupmService: RegroupementService) { }
 
@@ -64,9 +65,10 @@ export class ParametrageComponent implements OnInit {
 
 
 
-
   // setting ng2smarttable
   formatSetting(): void {
+
+    this.param = 0;
 
     this.settings = {
 
@@ -114,13 +116,21 @@ export class ParametrageComponent implements OnInit {
           sort: true,
           width: '20%',
           filter: true,
-        },
+          valuePrepareFunction: (value) => {
+            this.param = 0;
+            return value;
+          },
+          filterFunction: (cell?: any, search?: string) => {
+
+             return (cell === search);
+          } },
         codeRegroupMat: {
           title: 'Regroupement',
           editable: true,
           sort: true,
           width: '20%',
           filter: true,
+
           editor: {
             type: 'list',
             config: {
@@ -142,6 +152,13 @@ export class ParametrageComponent implements OnInit {
         },
       },
     };
+  }
+
+  coucou() {
+    console.log('coucou');
+    this.source.getFilteredAndSorted().then((d) => console.log(d.map(x => x.codeMat)));
+    console.log(this.source.count());
+
   }
 
 

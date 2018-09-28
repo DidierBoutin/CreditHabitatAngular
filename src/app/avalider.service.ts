@@ -27,19 +27,28 @@ export class AvaliderService {
      return this.http.get<AvaliderBoxRow[]>(this.API_URL_DON + '/AvaliderBox');
   }
 
+
+  getValidesBox(): Observable<any> {
+    return this.http.get<any[]>(this.API_URL_DECL + '/AvaliderBox');
+ }
+
   getAvaliderList(soc: String, an: number, trim: number ): Observable<any> {
-     console.log(this.API_URL_DON +  soc + '/' + an + '/' + trim);
-    return this.http.get<any>(this.API_URL_DON +  soc + '/' + an + '/' + trim);
+     return this.http.get<any>(this.API_URL_DON +  soc + '/' + an + '/' + trim);
  }
 
  saveAvalider(soc: String, an: number, trim: number ): Observable<any> {
- console.log('post ' + this.API_URL_DECL +  soc + '/' + an + '/' + trim);
-  return this.http.post<any>(this.API_URL_DECL +  soc + '/' + an + '/' + trim , null);
+   return this.http.post<any>(this.API_URL_DECL +  soc + '/' + an + '/' + trim , null);
  }
 
  deleteAvalider(soc: String, an: number, trim: number): Observable<any> {
-  console.log('del ' + this.API_URL_DECL +  soc + '/' + an + '/' + trim);
-
   return this.http.delete<any>(this.API_URL_DON +  soc + '/' + an + '/' + trim );
  }
+
+ getValideList(soc: String, an: number, trim: number): Observable<any> {
+  return this.http.get<any>(this.API_URL_DECL +  soc + '/' + an + '/' + trim );
+ }
+
+
+
+
 }

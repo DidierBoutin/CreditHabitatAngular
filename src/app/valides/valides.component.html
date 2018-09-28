@@ -1,38 +1,73 @@
-<p>
-  valides works!
-</p>
-<button mat-icon-button [matMenuTriggerFor]="menu">
-    <mat-icon>more_vert</mat-icon>
-    aaaa
-  </button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item>
-    <mat-icon>dialpad</mat-icon>
-    <span>Redial</span>
-  </button>
-  <button mat-menu-item disabled> 
-    <mat-icon>voicemail</mat-icon>
-    <span>Check voicemail</span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>notifications_off</mat-icon>
-    <span>Disable alerts</span>
-  </button>
-</mat-menu>
+<div id="conteneur">
 
-<mat-menu #appMenu="matMenu">
-  <ng-template matMenuContent let-name="name">
-    <button mat-menu-item>Settings</button>
-    <button mat-menu-item>Log off {{name}}</button>
-  </ng-template>
-</mat-menu>
+  <div id="menupage">
 
-<button mat-icon-button [matMenuTriggerFor]="appMenu" [matMenuTriggerData]="{name: 'Sally'}">
-  <mat-icon>more_vert</mat-icon>
-</button>
-
-<button mat-icon-button [matMenuTriggerFor]="appMenu" [matMenuTriggerData]="{name: 'Bob'}">
-  <mat-icon>more_vert</mat-icon>
-</button>
+    <div id="selection">
+      <div id=bloccriteres>
 
 
+        <table id="blocform" class="critere">
+          <tr>
+            <th class="titrechamps">Société</th>
+            <th class="titrechamps">Année</th>
+            <th class="titrechamps">Trimestre </th>
+            <th class="titrechamps">Cumul </th>
+
+
+          </tr>
+          <tr>
+            <td class="champs">
+              <mat-form-field class="desactivform">
+                <mat-select [(ngModel)]="selectedSoc" name="soc" (selectionChange)="changeBoxes()">
+                  <mat-option *ngFor="let soc of listSoc" [value]="soc">
+                    {{soc}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+
+            <td class="champs">
+              <mat-form-field class="desactivform">
+                <mat-select [(ngModel)]="selectedAn" name="an" (selectionChange)="changeBoxes()">
+                  <mat-option *ngFor="let an of listAn" [value]="an">
+                    {{an}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+
+            <td class="champs">
+              <mat-form-field class="desactivform">
+                <mat-select [(ngModel)]="selectedTrim" name="trim" (selectionChange)="changeBoxes()">
+                  <mat-option *ngFor="let trim of listTrim" [value]="trim">
+                    {{trim}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+            <td class="champs der">{{totalOfSelecting}}</td>
+
+          </tr>
+        </table>
+      </div>
+
+
+
+    </div>
+
+    <div id="contexte">
+    </div>
+
+  </div>
+
+
+  <div *ngIf="nbColReg !== 0" id="bodypage">
+    <ng2-smart-table [settings]="settings" [source]="source" (rowSelect)="coucou()">
+    </ng2-smart-table>
+  </div>
+
+  <div *ngIf="nbColReg === 0" [style.font-size]="'2em'" [style.color]="'red'" >
+     Aucune données,  veuillez verifier la selection.
+  </div>
+
+</div>
