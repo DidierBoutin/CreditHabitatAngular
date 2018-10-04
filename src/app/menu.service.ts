@@ -49,8 +49,16 @@ export class MenuService {
 
   ];
 
+  /* retourne une liste de menu correspondant à la position en parmetre*/
   getList(position): Menu [] {
     return this.menu.filter(item => item.position === position);
+  }
+
+
+  /* initialiser le menu courant en fonction du chemin de l'url en parametre */
+  getCurrentMenu(curPath, origin) {
+      const m = this.menu.find(elt => origin + elt.path === curPath );
+       this.selectedMenu =  ( m  ?   m : this.menu[0] );
   }
 
 

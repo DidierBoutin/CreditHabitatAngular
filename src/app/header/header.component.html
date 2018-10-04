@@ -1,41 +1,33 @@
 
-     <div id="linemenu"> 
-        <div id="menu1">
-            <div id="choix"
-                *ngFor="let m of menuService.getList('header')" 
-                     [style.color]="m.color"
-                    [style.opacity]="menuService.selectedMenu.name === m.name ? '1' : '0.2'">
-                    
-                        <a      [style.color]="m.color" 
-                                [style.font-weight]="menuService.selectedMenu.name === m.name ? 'bold' : 'normal'"
-                                [style.font-size]="menuService.selectedMenu.name === m.name ? '0.25em' : '0.2em'"
-                                (click)="selectMenu(m, $event)" routerLink="{{m.path}}">
-                                <div class="choixicon" >
-                                    <mat-icon>{{m.icone}}</mat-icon>
-                                    <div class="titleicone">{{m.name}}</div>
-                                </div>   
-
-                        </a>
-            </div>
-        </div>
-        <div id="menu2">
-            <div id="choix2"    [style.font-weight]="'normal'" 
-                                [style.font-size]="'0.25em'">
-                    <a href="/quitter"  [style.color]="'black'">
-                        <div class="choixicon" >
-                            <mat-icon>exit_to_app</mat-icon>
-                            <div class="titleicone"> Quitter </div>
-
-                        </div> 
-                    </a>
-
-             </div> 
+ 
+<div  *ngIf="isAuth" id="linemenu">
+    <div  id="menu1">
+        <div id="choix" *ngFor="let m of menuService.getList('header')">
+            <a 
+                [style.color]="m.color"                
+                [style.font-weight]="menuService.selectedMenu.name === m.name ? 'bold' : 'normal'" 
+                [style.font-size]="menuService.selectedMenu.name === m.name ? '0.25em' : '0.2em'"
+                [style.opacity]="menuService.selectedMenu.name === m.name ? '1' : '0.2'"
+                
+                (click)="selectMenu(m)" routerLink="{{m.path}}">
+                
+                <div class="choixicon">
+                    <mat-icon>{{m.icone}}</mat-icon>
+                    <div class="titleicone">{{m.name}}</div>
+                </div>
+            </a>
         </div>
     </div>
-       
-       
-       
+    <div id="menu2">
+        <div id="choix2" [style.font-weight]="'normal'" [style.font-size]="'0.25em'">
+            <a routerLink="/connexion" [style.color]="'black'">
+                <div class="choixicon">
+                    <mat-icon>exit_to_app</mat-icon>
+                    <div class="titleicone"> Quitter </div>
 
-  
+                </div>
+            </a>
 
- 
+        </div>
+    </div>
+</div>

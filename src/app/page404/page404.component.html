@@ -1,4 +1,7 @@
-<p>
-  Lien htlm non trouvé, veuillez le resaissir, ou contactez l'administrateur du site.
-</p>
- 
+<ul class="nav navbar-nav">
+    <li routerLinkActive="active"><a routerLink="auth">Authentification</a></li>
+    <li routerLinkActive="active"><a routerLink="appareils">Appareils</a></li>
+</ul>
+<div class="nav navbar-nav">
+    <p>Vous êtes connecté depuis {{ secondes }} secondes !</p>
+</div>

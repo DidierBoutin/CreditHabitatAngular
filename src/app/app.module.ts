@@ -29,8 +29,14 @@ import { ValidesComponent } from './valides/valides.component';
 
 const routes: Routes = [
 { path: '',
-   redirectTo: 'anomalie', pathMatch: 'full'
+   redirectTo: 'connexion', pathMatch: 'full'
   },
+
+  {
+    path: 'connexion',
+    component: ConnexionComponent
+  },
+
 
 {
   path: 'anomalie',

@@ -1,5 +1,11 @@
 <div id="conteneur">
 
+
+
+
+   
+
+
   <div id="menupage">
 
     <div id="selection">
@@ -12,13 +18,15 @@
             <th class="titrechamps">Année</th>
             <th class="titrechamps">Trimestre </th>
             <th class="titrechamps">Cumul </th>
-
-
           </tr>
           <tr>
+
+
+              
+              
             <td class="champs">
               <mat-form-field class="desactivform">
-                <mat-select [(ngModel)]="selectedSoc" name="soc" (selectionChange)="changeBoxes()">
+                <mat-select [(ngModel)]="selectedSoc"  (selectionChange)="changeBoxes('name')">
                   <mat-option *ngFor="let soc of listSoc" [value]="soc">
                     {{soc}}
                   </mat-option>
@@ -28,7 +36,7 @@
 
             <td class="champs">
               <mat-form-field class="desactivform">
-                <mat-select [(ngModel)]="selectedAn" name="an" (selectionChange)="changeBoxes()">
+                <mat-select [(ngModel)]="selectedAn" name="an" (selectionChange)="changeBoxes('name')">
                   <mat-option *ngFor="let an of listAn" [value]="an">
                     {{an}}
                   </mat-option>
@@ -38,7 +46,7 @@
 
             <td class="champs">
               <mat-form-field class="desactivform">
-                <mat-select [(ngModel)]="selectedTrim" name="trim" (selectionChange)="changeBoxes()">
+                <mat-select [(ngModel)]="selectedTrim" name="trim" (selectionChange)="changeBoxes('name')">
                   <mat-option *ngFor="let trim of listTrim" [value]="trim">
                     {{trim}}
                   </mat-option>

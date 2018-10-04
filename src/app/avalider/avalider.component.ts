@@ -50,7 +50,6 @@ export class AvaliderComponent implements OnInit {
   constructor(public avaliderService: AvaliderService, public dialog: MatDialog) { }
 
   ngOnInit() {
-
     /* recherche des valeurs 3 criteres possibles  */
     this.prepareScreen();
 

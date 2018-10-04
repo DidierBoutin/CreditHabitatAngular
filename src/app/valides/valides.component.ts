@@ -129,7 +129,9 @@ export class ValidesComponent implements OnInit {
   }
 
   /* pour une nouvelle selection, on reaffiche la liste principale */
-  public changeBoxes() {
+  public changeBoxes(s: String) {
+    console.log('s');
+    console.log(s);
     this.getListValides();
   }
 

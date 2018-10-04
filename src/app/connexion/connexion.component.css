@@ -1,0 +1,44 @@
+ 
+.button
+{ color: blue;
+  }
+
+.error
+{color: red}
+
+#conteneurpage {
+     display: flex;	
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%; 
+    width: 100%;  
+    font-size: 1.2em;
+
+}
+
+#blocconnex {
+    display: flex;	
+   flex-direction: column;
+   justify-content: center;
+   align-items: flex-start;
+   height: 90vh; 
+   width: 50%;  
+   font-size: 1.2em;
+   margin-left: 20%;
+
+}
+
+
+#image {
+    display: flex;	
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 90vh; 
+   width: 50%;  
+   font-size: 1.2em;
+   margin-right: 20%;
+
+
+}
